@@ -1,0 +1,681 @@
+@import url(./assets/fonts/alc/stylesheet.css);
+@import url('https://fonts.googleapis.com/css2?family=Qwigley&display=swap');
+* {
+    user-select: none;
+    scrollbar-color: #458245 #714826;
+    /* «цвет ползунка» «цвет полосы скроллбара» */
+    scrollbar-width: 4px;
+    /* толщина */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#app {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.display {
+    display: block;
+}
+.left {
+    width: 33.3%;
+    padding-left: 92px;
+    height: 100%;
+    display: flex;
+    align-items: center
+}
+
+.wrapper {
+    max-width: 100%;
+}
+
+.content {
+    max-height: 724px;
+    overflow-y: auto;
+    padding-right: 26px;
+}
+
+/* полоса прокрутки (скроллбар) */
+
+::-webkit-scrollbar {
+    width: 2px;
+    /* ширина для вертикального скролла */
+    height: 8px;
+    /* высота для горизонтального скролла */
+    background-color: #0E1115;
+    ;
+}
+
+/* ползунок скроллбара */
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.71);
+    ;
+}
+
+.title {
+    padding-bottom: 55px;
+    display: flex;
+    justify-content: center;
+}
+
+.title b {
+    font-family: Akzidenz-Grotesk Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 41px;
+    color: #FFFFFF;
+}
+
+.title p {
+    font-family: Qwigley;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 80px;
+    color: #5C9FF9;
+    position: relative;
+    bottom: 30px;
+}
+
+.car__card {
+    background: rgba(14, 17, 21, 0.97);
+    border: 1px solid #4A535F;
+    box-sizing: border-box;
+    border-radius: 4px;
+    max-width: 301px;
+    max-height: 104px;
+    color: white;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.card__wrapper {
+    padding-top: 18px;
+    padding-right: 52px;
+    padding-bottom: 22px;
+    padding-left: 23px;
+}
+
+.card__wrapper b {
+    font-family: Akzidenz-Grotesk Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.car__stats {
+    display: flex;
+}
+
+.car__stats p {
+    margin-left: 27px;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    /* identical to box height */
+    color: #FFFFFF;
+    position: relative;
+}
+
+.car__stats p:last-child {
+    margin-left: 35px;
+}
+
+.car__stats .speed::before {
+    position: absolute;
+    content: "";
+    left: -27px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url('./assets/img/speed.svg');
+}
+
+.car__stats .fuel::before {
+    position: absolute;
+    content: "";
+    left: -16px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url('./assets/img/fuel.svg');
+}
+
+.car__stats .trunk::before {
+    position: absolute;
+    content: "";
+    left: -25px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-image: url('./assets/img/trunk.svg');
+}
+
+.center {
+    width: 21%;
+    text-align: center;
+    height: 87%;
+    ;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    align-items: center;
+}
+
+.center b {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-bottom: 23px;
+}
+
+.colors {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.speed__card {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    width: 100%;
+    margin: 0;
+}
+
+.color__block {
+    cursor: pointer;
+    margin-bottom: 14px;
+    max-width: 31px;
+    max-height: 31px;
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgba(92, 92, 92, 0.438);
+    border-radius: 100%;
+    margin-left: 39px;
+}
+
+.right {
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-right: 144px;
+}
+
+.info {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 44px;
+}
+
+.butt {
+    background: #0E1115;
+    border-radius: 2px;
+    padding: 11px 6px;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 16px;
+    /* identical to box height */
+    margin-left: 21px;
+    color: #FFFFFF;
+    position: relative;
+}
+
+.bal::before {
+    content: "Баланс";
+    position: absolute;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.btn::before {
+    content: "Выйти";
+    position: absolute;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(255, 255, 255, 0.5);
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.butt span {
+    color: #8CFF9F;
+}
+
+.car__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.car__title h1 {
+    font-family: Akzidenz-Grotesk Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 80px;
+    color: #FFFFFF;
+    padding-bottom: 9px;
+}
+
+.car__title p {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.5);
+    padding-bottom: 13px;
+}
+
+.stats__card {
+    background: #0E1115;
+    border-radius: 2px;
+    width: 408px;
+    margin-bottom: 14px;
+}
+
+.stats__wrapper {
+    padding-top: 19px;
+    padding-right: 31px;
+    padding-bottom: 24px;
+    padding-left: 49px;
+}
+
+.stats__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stats__title b {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    color: #FFFFFF;
+    position: relative;
+}
+
+.stats__title b img {
+    padding-right: 9px;
+}
+
+.stats__title p {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.bart {
+    max-width: 332px;
+    height: 2px;
+    width: 100%;
+    position: relative;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.barfull {
+    transition: all 0.2s ease;
+    width: 30%;
+    height: 100%;
+    background-color: #E23D3D;
+}
+
+.right__wrapper {
+    display: flex;
+    padding-top: 97px;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.teh {
+    display: flex;
+}
+
+.carStatistics {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.carStatistics .teh p {
+    padding-bottom: 13px;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.l {
+    position: absolute;
+    height: 100%;
+    width: 30%;
+    z-index: -1;
+}
+
+.layout {
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, .5) 0%, rgba(2, 0, 36, 0) 100%);
+}
+
+.second__layout {
+    right: 0;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 0) 0%, rgba(0, 0, 0, .9) 100%);
+}
+
+.active {
+    border: 1px solid rgba(140, 255, 159, 0.85);
+    background-color: rgba(14, 17, 21, 0.37);
+    transition: all .05s ease;
+}
+
+.green {
+    background-color: #8CFF9F;
+}
+
+.orange {
+    background-color: #FFBB56;
+}
+
+.i__stats {
+    padding-top: 21px;
+    display: flex;
+}
+
+.fs {
+    background: #0E1115;
+    border-radius: 2px;
+}
+
+.fuel__stat {
+    margin-right: 28px;
+}
+
+.fs__wrapper {
+    padding: 15px 30px 15px 48px;
+    position: relative;
+}
+
+.fs__wrapper img {
+    position: absolute;
+    left: -20px;
+}
+
+.fs__wrapper p {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.fs__wrapper b {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    padding-top: 1px;
+}
+
+.price {
+    padding-top: 27px;
+    padding-bottom: 26px;
+    max-width: 366px;
+    width: 100%;
+}
+
+.price p {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.price b {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FFFFFF;
+}
+
+.buy__buttons button {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    padding: 19.5px 26.5px 20.5px 27.5px;
+    background: none;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.5);
+    transform: skewX(-15deg);
+    position: relative;
+}
+
+.buy__buttons button:last-child {
+    transform: skewX(15deg);
+}
+
+.buy__buttons button .btns {
+    transform: skewX(15deg)
+}
+
+.buy__buttons button:last-child .btns {
+    transform: skewX(-15deg)
+}
+
+.buy__buttons button:last-child {
+    padding: 21px 63px;
+}
+
+.buy__buttons button:first-child {
+    margin-right: 28.5px;
+}
+
+.buy__buttons button:hover:first-child {
+    background: #8CFF9F;
+    box-shadow: 0px 0px 80px rgba(140, 255, 159, 0.3);
+    border: 1px solid #8CFF9F;
+    color: black;
+    transition: all 0.2s ease
+}
+
+.buy__buttons button:hover:last-child {
+    background: #FFEE59;
+    box-shadow: 0px 0px 80px rgba(255, 238, 89, 0.5);
+    color: black;
+    transition: all 0.2s ease;
+    border: 1px solid #FFEE59;
+}
+
+.buy__buttons button:hover:last-child .flag {
+    opacity: 1;
+}
+.buy__buttons button:hover:first-child .img__money{
+    opacity: 1;
+}
+.flag {
+    position: absolute;
+    top: -10px;
+    left: -5px;
+    opacity: 0;
+    transform: rotate(15deg);
+    transition: all 0.2s ease;
+}
+.img__money{
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+#modal {
+    max-width: 470px;
+    max-height: 260px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-image: url('./assets/img/back.png');
+    background-position: bottom center;
+    transform: skewX(-10deg);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 3;
+}
+
+.wwrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wtitle {
+    padding-bottom: 22px;
+}
+
+.wtitle p:first-child {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    /* identical to box height */
+    color: rgba(255, 255, 255, 0.6);
+    padding-bottom: 7px;
+}
+
+.wtitle b {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    padding-bottom: 7px;
+}
+
+.wtitle p:last-child {
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #8CFF9F;
+}
+
+.wtitle span {
+    color: white;
+}
+
+.btns_wt button {
+    font-family: Proxima Nova;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-sizing: border-box;
+    filter: drop-shadow(0px 0px 80px rgba(140, 255, 159, 0.25));
+    border-radius: 3px;
+    padding: 16px 37px;
+    background: none;
+    font-family: Proxima Nova;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px; 
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.btns_wt button:first-child {
+    margin-right: 56px;
+}
+
+.btns_wt button:first-child:hover {
+    background: #8CFF9F;
+    box-shadow: 0px 0px 80px rgba(140, 255, 159, 0.25);
+}
+
+.btns_wt button:last-child:hover {
+    background: #E23D3D;
+    box-shadow: 0px 0px 80px rgba(226, 61, 61, 0.5);
+}
+
+.btns_wt button:hover{
+    color: #000000;
+}
+
+#lay {
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+}

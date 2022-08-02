@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./reset.css">
+    <title>члена-бибра</title>
+</head>
+
+<body>
+    <div id="app">
+        <div id="lay" v-if='modal'>
+            
+        </div>
+        <div id="modal" v-if='modal'>
+            <div class="wwrapper">
+               <div class="wtitle">
+                <p>Вы уверены, что хотите купить</p>
+                <b>{{currentCarStats.name}}</b>
+                <p>$ <span>{{currentCarStats.price}}</span></p>
+               </div>
+               <div class="btns_wt">
+                   <button @click='urMethod'>Да</button>
+                   <button @click='modal = false'>Нет</button>
+               </div>
+            </div>
+        </div>
+        <div class="layout l"></div>
+        <div class="second__layout l "></div>
+        <div class="left">
+            <div class="wrapper">
+                <div class="title">
+                    <img src="./assets/img/avtosalon.svg" alt="">
+                </div>
+                <div class="content">
+                    <div class="car__card" v-for="(car, index) in cars" :key='index' v-cloak
+                        @click='currentCarStats = car; send(car)' :class='{active: currentCarStats == car}'>
+                        <div class="card__wrapper">
+                            <b>{{car.name}}</b>
+                            <div class="car__stats">
+                                <p class="speed">{{car.speed + 'км/ч'}}</p>
+                                <p class="fuel">{{car.fuel + ' л.'}}</p>
+                                <p class="trunk">{{car.trunk + ' кг'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="center">
+            <b>Выберите цвет</b>
+            <div class="colors">
+                <div class="color__block" v-for='color in colors' :style='{backgroundColor:color}'
+                    @click='currentCarStats.color = color'>
+                </div>
+            </div>
+        </div>
+        <div class="right" v-show='currentCarStats.name'>
+            <div class="right__wrapper">
+                <div class="info">
+                    <div class="bal butt">{{money}} <span>$</span> </div>
+                    <div class="btn butt">Esc</div>
+                </div>
+                <div class="car__title">
+                    <h1>{{currentCarStats.name}}</h1>
+                </div>
+                <div class="carStatistics">
+                    <div class="teh">
+                        <p>Технические характеристики</p>
+                    </div>
+                    <div class="stats__card">
+                        <div class="stats__wrapper">
+                            <div class="speed__card">
+                                <div class="stats__title">
+                                <b> <img src="./assets/img/tehSpeed.svg"> Скорость</b>
+                                <p>Макс: 267 км/ч</p>
+                            </div>
+                            <div class="bar">
+                                <div class="bart" ><div  :style='{width: stats.speed + "px"}'  class="barfull green" ></div></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats__card">
+                        <div class="stats__wrapper">
+                            <div class="speed__card">
+                                <div class="stats__title">
+                                <b > <img src="./assets/img/TehTop.svg"> Ускорение</b>
+                                <p>0-100м: 3,6 сек.</p>
+                            </div>
+                            <div class="bar">
+                                <div class="bart"  ><div :style='{width: stats.fast + "px"}'  class="barfull green" ></div></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats__card">
+                        <div class="stats__wrapper">
+                            <div class="speed__card">
+                                <div class="stats__title">
+                                <b> <img src="./assets/img/Roul.svg">Управление</b>
+                            </div>
+                            <div class="bar">
+                                <div class="bart"  ><div  :style='{width: stats.move + "px"}'  class="barfull orange" ></div></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats__card">
+                        <div class="stats__wrapper">
+                            <div class="speed__card">
+                                <div class="stats__title">
+                                <b> <img src="./assets/img/brake.svg">Торможение</b>
+                            </div>
+                            <div class="bar">
+                                <div class="bart" ><div :style='{width: stats.brake + "px"}'  class="barfull" ></div></div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="i__stats">
+                   <div class="fuel__stat fs">
+                       <div class="fs__wrapper">
+                        <img src="./assets/img/leyka.svg" alt="">
+                        <p>Объём бака</p>
+                        <b>65 литров</b>
+                       </div>
+                   </div>
+                   <div class="bag__stat fs">
+                       <div class="fs__wrapper">
+                           <img src="./assets/img/bag.svg" alt="">
+                        <p>Объём багажника</p>
+                        <b>150 кг.</b>
+                       </div>
+                   </div>
+               </div>
+               <div class="price">
+                   <p>Стоимость автомобиля:</p>
+                   <b>$ {{currentCarStats.price}}</b>
+               </div>
+               <div class="buy__buttons">
+                   
+                   <button @click='modal = true'>
+                    <img class='img__money' src="./assets/img/money.svg" alt="">   
+                    <div class="btns">Купить автомобиль</div></button>
+                   <button>
+                    <img class="flag" src="./assets/img/flag.svg">   
+                    <div class="btns">Тест-драйв</div></button>
+               </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
